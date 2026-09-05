@@ -120,10 +120,14 @@
     document.addEventListener('DOMContentLoaded', () => {
       const enterBtn = document.getElementById('enter-btn');
       const loadingScreen = document.getElementById('loading-screen');
+      
+      const bgAudio = new Audio('aaaa.mp3');
+      bgAudio.loop = true;
 
       document.body.style.overflow = 'hidden';
 
       enterBtn.addEventListener('click', () => {
+        bgAudio.play().catch(e => console.error("Audio playback failed:", e));
         loadingScreen.classList.add('hidden');
         document.body.style.overflow = 'auto';
       });
